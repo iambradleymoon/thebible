@@ -1,0 +1,59 @@
+<?php
+
+<?php
+
+global $current_user;
+      get_currentuserinfo();
+?>
+
+<style>
+	.support{
+		padding-top:10px;
+	}
+	
+	.logged-in-user{
+		position:absolute;
+		background-size:cover;
+		width:10%;
+		float:left;
+		height:100%;
+		background-position:center;
+	}
+
+	
+	
+	.description{
+		width:90%;
+		float:right;
+		padding:20px;
+		box-sizing:border-box;
+	}
+</style>
+<?php $current_user = wp_get_current_user(); ?>
+<?php $avatar_url = get_avatar_url($current_user->ID, array("size"=>512)); ?>
+
+<?php if ( is_user_logged_in() ): ?>
+
+
+       <?php if ( ($current_user instanceof WP_User) ) : ?>
+            
+            <div class="logged-in-user" style="background-image: url('<?php echo $avatar_url; ?>');"></div>
+        
+       <?php endif;?>
+<?php endif;?>
+
+
+
+
+<div class="description">
+	<h1> Hello <span style="color:#5a2a82; font-weight:bold;"><?php echo $current_user->user_firstname ?></span>, welcome to your dashboard.</h1>
+	<p>
+	Using this dashboard you can access some useful features that are quick and easy to use.
+	</p>
+	<div class="support">
+	<h2>Are you in need of support?</h2>
+	<p> Please feel free to contact your beautiful team on: <a style="color: #5a2a82;" href="tel:0344 264 1235"> 0344 264 1235 </a> or alternatively fill out a support ticket and we will do our best to get in touch with you and help as much as we can. </p>
+	</div>
+</div>	
+
+?>
