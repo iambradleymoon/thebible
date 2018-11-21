@@ -1,1 +1,14 @@
 
+<?php
+
+function st_welcome_init() {
+global $wpdb;
+$wpdb->update($wpdb->usermeta,array('meta_value'=>1),array('meta_key'=>'show_welcome_panel'));
+}
+
+add_action('after_switch_theme','st_welcome_init');
+
+add_action( 'customize_register', 'childtheme_customize_register'); //second argument is arbitrary, but cannot have hyphens because php does not allow them in function names.
+
+?>
+
