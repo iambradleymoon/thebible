@@ -1,0 +1,38 @@
+<?php
+
+function add_global_custom_options()
+{
+    add_options_page('Submit A Ticket', 'Submit A Ticket', 'manage_options', 'submit-a-ticket','global_custom_options');
+
+}
+
+
+function global_custom_options()
+{
+?>
+
+<style>
+  .wrap{
+    max-width: 980px;
+    margin: 50px auto 0px auto;
+    width: 80%;
+  }
+
+</style>
+    <div class="wrap">
+        <h2>Submit A Ticket</h2>
+        <p style="margin-bottom: 50px;">Are you experiencing some issues with your website? Please fill out the form below and we will try and get it sorted as soon as possible, we may call you if we need further information.</p>
+        <iframe width="100%" height="100%" src="https://www.digitalclique.co.uk/raise-a-ticket.html" 
+frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+      (function($) {
+        var heightWithMargin = $('body').outerHeight(true);
+        var adminbar = $('.wpadminbar').outerHeight(true);
+        $('.wrap').height(heightWithMargin - adminbar);
+      })( jQuery );
+    </script>
+<?php
+}
+?>
